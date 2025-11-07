@@ -345,9 +345,9 @@ function App() {
                  className="relative w-full max-w-md h-[80vh] max-h-[900px] bg-slate-700 overflow-hidden shadow-2xl border-8 border-slate-900">
                 {status !== 'playing' && (
                     <Modal
-                        title={status === 'start' ? "Vova Deviatka" : (status === 'gameOver' ? "Game Over" : "You Win!")}
-                        message={status === 'start' ? "Avoid police, collect cakes. Use Arrow keys or Swipe." : (status === 'gameOver' ? `Your final score: ${score}` : "Congratulations! You are a true racer.")}
-                        buttonText={status === 'start' ? "Start Game" : "Play Again"}
+                        title={status === 'start' ? "" : (status === 'gameOver' ? "Game Over" : "You Win!")}
+                        message={status === 'start' ? "Не має значення, що ти стоїш біля тачки і вона твоя. Важливо інше: як ти на ній їздиш! Запам'ятай це!" : (status === 'gameOver' ? `Your final score: ${score}` : "Congratulations! You are a true racer.")}
+                        buttonText={status === 'start' ? "Поїхали" : "Play Again"}
                         onButtonClick={resetGame}
                         imageUrl={getModalImageUrl()}
                     />
