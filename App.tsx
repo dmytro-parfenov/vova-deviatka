@@ -4,6 +4,14 @@ import type { GameObject, GameStatus, CollectionAnimation } from './types';
 import { INITIAL_LIVES, WIN_SCORE, LANES, GAME_SPEED_START, ROAD_LINE_SPEED, OBJECT_SPAWN_INTERVAL, PLAYER_CAR_HEIGHT, OBJECT_HEIGHT } from './constants';
 import useSoundManager from './hooks/useSoundManager';
 import { SoundOnIcon, SoundOffIcon } from './components/Icons';
+import CakeIcon from './assets/cake.png';
+import ConfettiIcon from './assets/confetti.png';
+import ExplosionIcon from './assets/explosion.png';
+import ParfIcon from './assets/parf.png';
+import PlayerIcon from './assets/player.png';
+import PlayerCarIcon from './assets/player-car.png';
+import PoliceIcon from './assets/police.png';
+import TetianaIcon from './assets/tetiana.png';
 
 const soundUrls = {
     background: 'https://github.com/DP-PLAYGROUND/vova-deviatka-assets/raw/refs/heads/main/car-engine.mp3',
@@ -52,8 +60,8 @@ const GameObjectDisplay = React.memo(({ object, gameWidth }: { object: GameObjec
     return (
         <div className="absolute w-16 h-20" style={style}>
             {object.type === 'police' 
-                ? <img src="https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/police.png" alt="Police" className="w-full h-full object-contain rounded-lg" /> 
-                : <img src="https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/cake.png" alt="Collectible" className="w-full h-full object-contain rounded-lg" />}
+                ? <img src={PoliceIcon} alt="Police" className="w-full h-full object-contain rounded-lg" />
+                : <img src={CakeIcon} alt="Collectible" className="w-full h-full object-contain rounded-lg" />}
         </div>
     );
 });
@@ -69,7 +77,7 @@ const CollectionAnimationDisplay = React.memo(({ animation, gameWidth }: { anima
     return (
         <div className="absolute w-16 h-20 pointer-events-none z-20 flex justify-center items-center" style={style}>
             <img 
-                src="https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/confetti.png"
+                src={ConfettiIcon}
                 alt="Collected"
                 className="w-24 h-24 animate-explode object-contain rounded-full"
             />
@@ -248,10 +256,10 @@ function App() {
 
     const getModalImageUrl = () => {
         if (status === 'gameOver') {
-            return "https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/tetiana.png";
+            return TetianaIcon;
         }
         if (status === 'won') {
-            return "https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/parf.png";
+            return ParfIcon;
         }
         return undefined;
     };
@@ -265,7 +273,7 @@ function App() {
                 <div className="flex justify-between items-center text-xl md:text-2xl px-4">
                     <div className="font-bold flex items-center gap-2">
                         <img 
-                            src="https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/cake.png" 
+                            src={CakeIcon}
                             alt="Score" 
                             className="w-8 h-8 object-cover rounded-full" 
                         />
@@ -275,7 +283,7 @@ function App() {
                         <div className="flex items-center gap-2">
                             <span>{lives}</span>
                             <img 
-                              src="https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/player.png" 
+                              src={PlayerIcon}
                               alt="Life" 
                               className="w-8 h-8 inline-block rounded-full border-2 border-white" 
                             />
@@ -315,14 +323,14 @@ function App() {
                       style={{ left: lanePositions[playerLane], transform: 'translateX(-50%)' }}
                   >
                       <img 
-                        src="https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/player-car.png" 
+                        src={PlayerCarIcon}
                         alt="Player" 
                         className="w-full h-full object-contain rounded-lg"
                       />
                       {isColliding && (
                         <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
                             <img 
-                              src="https://raw.githubusercontent.com/DP-PLAYGROUND/vova-deviatka-assets/refs/heads/main/explosion.png" 
+                              src={ExplosionIcon}
                               alt="Crash"
                               className="w-24 h-24 animate-explode object-cover rounded-full"
                             />
