@@ -10,6 +10,15 @@
     <title>Vova Deviatka</title>
     <link rel="icon" href="/assets/player-car.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preload" as="image" href="/assets/cake.png">
+    <link rel="preload" as="image" href="/assets/confetti.png">
+    <link rel="preload" as="image" href="/assets/explosion.png">
+    <link rel="preload" as="image" href="/assets/parf.png">
+    <link rel="preload" as="image" href="/assets/player.png">
+    <link rel="preload" as="image" href="/assets/player-car.png">
+    <link rel="preload" as="image" href="/assets/police.png">
+    <link rel="preload" as="image" href="/assets/tetiana.png">
+    <link rel="preload" as="image" href="/assets/player-with-car.png">
 <script type="importmap">
 {
   "imports": {
@@ -55,6 +64,11 @@
 </head>
 <body>
     <div id="root"></div>
+    <audio src="/assets/car-engine.mp3" preload="auto"></audio>
+    <audio src="/assets/collect.mp3" preload="auto"></audio>
+    <audio src="/assets/crash.mp3" preload="auto"></audio>
+    <audio src="/assets/game-over.mp3" preload="auto"></audio>
+    <audio src="/assets/win.mp3" preload="auto"></audio>
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
